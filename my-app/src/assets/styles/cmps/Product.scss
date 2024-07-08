@@ -1,0 +1,33 @@
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 7px;
+  justify-content: center;
+//   border: 1px solid black;
+   margin-bottom: 10px;
+    width: 350px;
+    height: 350px;
+
+
+    p {
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7); // Затемнение фона
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000; // Убедимся, что модальное окно выше остальных элементов
+      }
+      
+      
+}

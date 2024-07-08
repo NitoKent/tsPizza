@@ -12,7 +12,7 @@ export function useProduct() {
         setError("");
         setLoading(true);
         const response = await axios.get<IProducts[]>(
-          "https://fakestoreapi.com/products?limit=5"
+          "https://fakestoreapi.com/products?limit=9"
         );
         setProduct(response.data);
         setLoading(false);

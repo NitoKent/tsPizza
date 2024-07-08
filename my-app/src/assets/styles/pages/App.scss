@@ -1,0 +1,21 @@
+.main-container {
+    width: calc(100% - 240px); 
+    height: max-content; 
+    margin: 40px 120px ;
+    border-radius: 7px;
+    // margin-top: 0px;
+    background-color: rgb(243, 243, 243);
+
+    main {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        align-self: start;
+        grid-template-columns: repeat(3, 2fr); // 4 элемента в строке
+        gap: 20px; // Расстояние между элементами
+        
+        padding: 47.5px; // Отступы вокруг списка продуктов
+    }
+  }
+  
+  

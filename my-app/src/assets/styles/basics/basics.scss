@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  line-height: 1.6;
+  background-color: rgba(102, 165, 171, 0.652);
+}
+
+// img {
+// }
+
+button {
+  width: 90px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(190, 212, 232);
+  color: rgb(51, 55, 58);
+}

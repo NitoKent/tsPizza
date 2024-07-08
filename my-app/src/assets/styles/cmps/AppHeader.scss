@@ -1,0 +1,35 @@
+.app-header {
+  display: grid;
+  grid-template-columns: 1fr auto; // Одна колонка для логотипа и одна для опций
+  align-items: center; // Выравнивание элементов по вертикали
+//   background-color: rgb(216, 228, 239);
+  border-radius: 7px 7px 0 0;
+//   border-bottom: 1px solid black;
+  width: 100%;
+  height: 100px; // Увеличим высоту, чтобы было больше места для содержимого
+  padding: 0 45px; // Отступы слева и справа
+
+  .logo {
+    grid-column: 1 / 2; // Логотип будет в первой колонке
+  }
+
+  .options {
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgba(252, 135, 2, 0.792);
+    grid-column: 2 / 3; // Опции будут во второй колонке
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    // justify-content: flex-end; // Выравнивание элементов внутри опций по правому краю
+    .price-basket,
+    .basket {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 20px; // Отступы между элементами внутри опций
+    }
+  }
+
+}
