@@ -16,14 +16,18 @@ body {
   background-color: rgba(102, 165, 171, 0.652);
 }
 
-// img {
-// }
+img {
+    width: 260px;
+    height: 260px;
+}
 
 button {
-  width: 90px;
-  height: 30px;
+  width: 110px;
+  height: 40px;
   border: none;
-  border-radius: 5px;
-  background-color: rgb(190, 212, 232);
-  color: rgb(51, 55, 58);
+  font-size: 15px;
+  border-radius: 50px;
+  background-color: rgb(252, 223, 207);
+  color: rgb(255, 104, 17);
 }
+// background-color: rgb(255, 142, 76);

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IProducts } from "../models";
+import { products } from "../data/data";
 import { AddModal } from "./AddModal";
 
 interface ProductProps {
@@ -21,28 +22,20 @@ export function Product({ products }: ProductProps) {
   return (
     <>
       <section className="product-container">
-        <img width={"100px"} alt={products.title} src={products.image} />
-        <p>{products.title}</p>
-        <p style={{ color: "blue" }}>{products.price}$</p>
+        <div className="context-card">
+          <img width={"100px"} alt={products.title} src={products.image} />
+          <p>{products.title}</p>
+          <p className="description">{products.description}</p>
+        </div>
 
-        <button onClick={getDetails}>
-          {!showDetails ? "Show Detail" : "Close Details"}
-        </button>
-        <button onClick={getModal}>
-          {!showModal ? "Show Modal" : "Close Modal"}
-        </button>
-
-        {showDetails && (
-          <div>
-            <p>{products.description}</p>
-            <p>{products.rating.rate}</p>
-          </div>
-        )}
+        <div className="footer-cards">
+          <p > от {products.price}$</p>
+          <button onClick={getModal}>
+           + Выбрать
+          </button>
+        </div>
       </section>
-      {showModal && (
-        <AddModal onClose={getModal} />
-      )}
+      {showModal && <AddModal onClose={getModal} products={products} />}
     </>
   );
 }
-

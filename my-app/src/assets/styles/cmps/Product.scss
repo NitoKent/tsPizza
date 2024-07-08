@@ -1,33 +1,44 @@
 .product-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: rgb(255, 255, 255);
   border-radius: 7px;
-  justify-content: center;
-//   border: 1px solid black;
-   margin-bottom: 10px;
-    width: 350px;
-    height: 350px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 350px;
+  height: 450px;
+  padding: 20px;
 
-
-    p {
-     display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.7); // Затемнение фона
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000; // Убедимся, что модальное окно выше остальных элементов
+  .context-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+    img {
+        align-self: center; 
       }
-      
-      
+      p {
+        font-size: 20px;
+      }
+      .description {
+        font-size: 15px;
+        color: gray;
+      }
+    }
+    .footer-cards {
+        display: flex;
+        justify-content: space-between; // Элементы по бокам
+        align-items: center; // Выравнивание по центру по вертикали
+        margin-top: auto; // Опускаем блок вниз
+        
+        p {
+            font-size: 20px;
+            
+        }
+        button:hover {
+          
+          background-color:rgb(245, 203, 178) ;
+        }
+  }
 }

@@ -3,7 +3,6 @@
     grid-template-columns: 1fr auto; // Одна колонка для кнопок и одна для опций
     align-items: center; // Выравнивание элементов по вертикали
     border-radius: 7px 7px 0 0;
-    border-bottom: 1px solid black;
     width: 100%;
     height: 100px; // Увеличим высоту, чтобы было больше места для содержимого
     padding: 0 45px; // Отступы слева и справа
@@ -33,7 +32,7 @@
             }
 
             &:hover {
-                border: solid 1px rgb(255, 255, 255);
+                border: solid 1px rgb(223, 208, 202);
             }
         }
     }

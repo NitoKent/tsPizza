@@ -1,39 +1,139 @@
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); // Затемнение фона
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); // Затемнение фона
+  display: flex;
+ 
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  background-color: white;
+  border-radius: 30px;
+  max-width: 900px;
+  height: 620px;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 20px;
+
+  img {
+    width: 400px;
+    height: 400px;
+  }
+
+  .left-side {
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 1000; // Убедимся, что модальное окно выше остальных элементов
+    justify-content: center;
   }
-  
-  .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 100%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+
+  .right-side {
+    background-color: rgb(252, 251, 251);
+
+    .container {
+      margin-left: 20px;
+
+      h1 {
+        margin-top: 20px;
+      }
+
+      p {
+        color: gray;
+      }
+
+      .size-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        position: relative;
+        height: 40px;
+      }
+
+      .slider-container {
+        position: relative;
+        width: 100%;
+        height: 40px;
+
+        .slider {
+          -webkit-appearance: none;
+          width: 298px;
+          height: 30px;
+          border-radius: 20px;
+          background: #ddd;
+          outline: none;
+          opacity: 0.7;
+          transition: opacity 0.1s, transform 0.9s ease-in-out;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 90px;
+            height: 30px;
+            transition: transform 1s ease-in-out;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+          }
+
+          &::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: white;
+            transition: transform 1s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+          }
+        }
+
+        .labels {
+          display: grid;
+          grid-template-columns: 2fr 2fr 2fr;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          width: 100%;
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: none;
+
+          span {
+            display: flex;
+            margin: 12px;
+            font-size: 13px;
+            color: black;
+          }
+        }
+      }
+    }
   }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  // Пример стилей для элементов внутри модального окна
-  .filter-by-size,
-  .add-ingredients,
-  .add-to-basket {
-    margin-top: 20px;
-  }
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.filter-by-size,
+.add-ingredients,
+.add-to-basket {
+  margin-top: 20px;
+}

@@ -6,7 +6,7 @@ export function Filter() {
   return (
     <section className="filter-line">
       <div className="change-by">
-        {["Все", "Мясные", "Острые"].map((filter) => (
+        {["Все", "Мясные", "Острые", "Без мяса", "Закрытые", "Морские"].map((filter) => (
           <button
             key={filter}
             className={activeFilter === filter ? "active" : ""}

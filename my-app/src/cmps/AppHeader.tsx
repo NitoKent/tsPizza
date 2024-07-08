@@ -14,13 +14,13 @@ export function AppHeader() {
             <div className="options">
                 <div className="price-basket">
                   <p>
-                    $$$
+                    Корзина
                   </p>
                  
                 </div>
                 <div className="basket">
                   <p>
-                    ///
+                   
                   </p>
                 </div>
 
