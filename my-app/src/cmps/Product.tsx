@@ -21,7 +21,7 @@ export function Product({ products }: ProductProps) {
 
   return (
     <>
-      <section className="product-container">
+      <section className="product-container" onClick={getModal}>
         <div className="context-card">
           <img width={"100px"} alt={products.title} src={products.image} />
           <p>{products.title}</p>

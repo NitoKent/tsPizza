@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { IProducts } from "../models";
+import { useDispatch } from "react-redux";
+import { add } from "../store";
 
 interface AddModalProps {
   onClose: () => void;
@@ -8,6 +10,12 @@ interface AddModalProps {
 
 export function AddModal({ onClose, products }: AddModalProps) {
   const [size, setSize] = useState(2); 
+  const dispatch = useDispatch();
+  
+  const handleAddToBasket = () => {
+    dispatch(add());
+    onClose();
+  };
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSize(Number(event.target.value));
@@ -61,7 +69,7 @@ export function AddModal({ onClose, products }: AddModalProps) {
               
             </div>
             <div className="add-to-basket">
-              <button>TO BASKET</button>
+              <button onClick={handleAddToBasket}>TO BASKET</button>
             </div>
           </div>
         </div>

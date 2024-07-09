@@ -1,14 +1,18 @@
+import React, { ChangeEvent } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 import { Svg } from "./Svg";
-import { ChangeEvent } from "react";
 
 interface AppHeaderProps {
-    onSearch: (query: string) => void;
-  }
+  onSearch: (query: string) => void;
+}
 
 export function AppHeader({ onSearch }: AppHeaderProps) {
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        onSearch(event.target.value);
-      };
+  const count = useSelector((state: RootState) => state.cart.counter);
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    onSearch(event.target.value);
+  };
 
   return (
     <section className="app-header">
@@ -24,9 +28,8 @@ export function AppHeader({ onSearch }: AppHeaderProps) {
             name="txt"
             type="text"
             placeholder="Поиск пиццы..."
-            onChange={handleInputChange}
-            //   className={searchInputVisible ? "visible" : ""}
             autoComplete="off"
+            onChange={handleInputChange}
           />
         </form>
       </div>
@@ -36,7 +39,7 @@ export function AppHeader({ onSearch }: AppHeaderProps) {
           <p>Корзина</p>
         </div>
         <div className="basket">
-          <p></p>
+          <p>{count}</p>
         </div>
       </div>
     </section>
