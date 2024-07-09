@@ -1,4 +1,3 @@
-
 import { Product } from "./cmps/Product";
 import { products } from "./data/data";
 import { useProduct } from "./hooks/product";
@@ -8,27 +7,26 @@ import { Filter } from "./cmps/Filter";
 import { AppHeader } from "./cmps/AppHeader";
 
 export function App() {
-
-  const {loading,error } = useProduct()
+  const { loading, error, searchQuery, handleSearch } = useProduct()
+  ;
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <section className="main-container">
-
       <header>
-      <AppHeader />
-      {loading && <Loader />}
-      <Filter />
-      {error && <Error error={error} />}
+        <AppHeader onSearch={handleSearch}/>
+        {loading && <Loader />}
       </header>
-       
-       <main>
 
-      {products.map((product) => (
-        <Product products={product} key={product.id} />
-      ))}
-
-       </main>
-
+        <Filter />
+        {error && <Error error={error} />}
+      <main>
+      {filteredProducts.map((product) => (
+          <Product products={product} key={product.id} />
+        ))}
+      </main>
     </section>
   );
 }

@@ -6,7 +6,12 @@ export function useProduct() {
     const [products, setProduct] = useState<IProducts[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [ searchQuery, setSearchQuery ] = useState<string>("")
   
+    const handleSearch = (query: string) => {
+        setSearchQuery(query);
+      }
+
     async function fetchProduct() {
       try {
         setError("");
@@ -28,5 +33,5 @@ export function useProduct() {
       fetchProduct();
     }, []);
 
-    return { products, error, loading }
+    return { products, error, loading, searchQuery, handleSearch}
 }

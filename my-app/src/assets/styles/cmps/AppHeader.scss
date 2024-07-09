@@ -1,6 +1,6 @@
 .app-header {
   display: grid;
-  grid-template-columns: 1fr auto; // Одна колонка для логотипа и одна для опций
+  grid-template-columns: 4fr 2fr auto; // Одна колонка для логотипа и одна для опций
   align-items: center; // Выравнивание элементов по вертикали
 //   background-color: rgb(216, 228, 239);
   border-radius: 7px 7px 0 0;
@@ -13,13 +13,43 @@
     grid-column: 1 / 2; // Логотип будет в первой колонке
   }
 
+
+  .search {
+
+
+    .search-icon {
+         position: absolute;
+           z-index: 2;
+            margin-top:9px;
+            margin-left: 8px;
+            fill: rgba(50, 50, 50, 0.717);
+       
+    }
+
+    input {
+        margin-left: em(10px);
+        color: rgb(0, 0, 0);
+        background-color: rgb(228, 224, 224);
+        border-radius: 10px;
+        height: 40px;
+        border: none;
+        outline: none;
+        margin-bottom: 0px;
+        padding-left: 30px;
+        width: 270px;
+        // opacity: 10;
+        transition: transform 0.9s, width 0.1s, opacity 0.2s;
+    }
+
+  }
+
   .options {
     width: 120px;
     height: 40px;
     border-radius: 50px;
     background-color: rgba(240, 94, 31, 0.855);
     color: white;
-    grid-column: 2 / 3; // Опции будут во второй колонке
+    grid-column: 3 / 4; // Опции будут во второй колонке
     display: flex;
     align-items: center;
     // justify-content: center;
