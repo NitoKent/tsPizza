@@ -47,7 +47,36 @@
 
       p {
         color: gray;
+      } 
+      .add-to-pizza {
+        display: grid;
+        padding: 0;
+        margin-top: 20px;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .supplement {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 50px;
+            width: 80px;
+            height: 120px;
+            background-color: white;
+
+            p{
+                color: black;
+            }
+            img {
+                border-radius: 50px;
+                width: 65px;
+                height: 65px;
+            }
+            &:hover {
+                border: 1px solid green;
+            }
+        }
       }
+      
 
       .size-labels {
         display: flex;

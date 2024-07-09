@@ -1,4 +1,28 @@
-import { IProducts } from "../models";
+import { IProducts, Isupplemets } from "../models";
+
+export const supplements:Isupplemets[] = [
+    {
+       id:1,
+       title:"Cheese",
+       price: 1.2,
+       image: "https://opttorg-horeca.ru/assets/images/catalog/cheese/rossijskij.jpg",
+
+    },
+    {
+        id:2,
+        title:"Salami",
+        price: 3,
+        image: "https://media.istockphoto.com/id/869538716/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%BD%D0%B0%D1%80%D0%B5%D0%B7%D0%B0%D0%BD%D0%BD%D0%B0%D1%8F-%D0%BB%D0%B5%D1%82%D0%BD%D1%8F%D1%8F-%D0%BA%D0%BE%D0%BB%D0%B1%D0%B0%D1%81%D0%B0-%D1%81%D0%B0%D0%BB%D1%8F%D0%BC%D0%B8-%D0%B8%D0%B7%D0%BE%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC-%D1%84%D0%BE%D0%BD%D0%B5-%D0%B2%D0%B8%D0%B4-%D1%81%D0%B2%D0%B5%D1%80%D1%85%D1%83.jpg?s=612x612&w=0&k=20&c=3EOM7rch9pDxo4YGoNu4g1a4MmVh8U9AngXeVvoBaO8=",
+ 
+     },
+     {
+        id:3,
+        title:"Tomate",
+        price: 2.1,
+        image: "https://eimg.pravda.com/images/doc/7/6/7651ad2-tomato.jpg",
+ 
+     },
+];
 
 export const products: IProducts[] = [
   {

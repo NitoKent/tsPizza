@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { IProducts } from "../models";
+import { IProducts, Isupplemets } from "../models";
 import { useDispatch } from "react-redux";
 import { add } from "../store";
 
 interface AddModalProps {
   onClose: () => void;
   products: IProducts;
+  supplements: Isupplemets[];
 }
 
-export function AddModal({ onClose, products }: AddModalProps) {
+export function AddModal({ onClose, products, supplements }: AddModalProps) {
   const [size, setSize] = useState(2); 
   const dispatch = useDispatch();
   
@@ -21,18 +22,7 @@ export function AddModal({ onClose, products }: AddModalProps) {
     setSize(Number(event.target.value));
   };
 
-  const getSizeLabel = () => {
-    switch (size) {
-      case 1:
-        return "Маленькая";
-      case 2:
-        return "Средняя";
-      case 3:
-        return "Большая";
-      default:
-        return "Средняя";
-    }
-  };
+
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -68,6 +58,19 @@ export function AddModal({ onClose, products }: AddModalProps) {
               </div>
               
             </div>
+            
+            <div className="add-to-pizza">
+              {supplements.map((supplement) => (
+                <div className="supplement" key={supplement.id}>
+                  <img src={supplement.image} alt={supplement.title} />
+                  <p>{supplement.title}</p>
+                  <p>{supplement.price}$</p>
+                </div>
+              ))}
+            </div>
+                
+
+        
             <div className="add-to-basket">
               <button onClick={handleAddToBasket}>TO BASKET</button>
             </div>

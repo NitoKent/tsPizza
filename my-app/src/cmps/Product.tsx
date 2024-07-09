@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { IProducts } from "../models";
+import { IProducts, Isupplemets } from "../models";
 import { products } from "../data/data";
 import { AddModal } from "./AddModal";
 
 interface ProductProps {
   products: IProducts;
+  supplements: Isupplemets[];
 }
 
-export function Product({ products }: ProductProps) {
+export function Product({ products,supplements }: ProductProps) {
   const [showDetails, setShowDetails] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -35,7 +36,7 @@ export function Product({ products }: ProductProps) {
           </button>
         </div>
       </section>
-      {showModal && <AddModal onClose={getModal} products={products} />}
+      {showModal && <AddModal onClose={getModal} products={products} supplements={supplements} />}
     </>
   );
 }

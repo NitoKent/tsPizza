@@ -1,5 +1,6 @@
 import { Product } from "./cmps/Product";
 import { products } from "./data/data";
+import { supplements } from "./data/data";
 import { useProduct } from "./hooks/product";
 import { Loader } from "./cmps/Loader";
 import { Error } from "./cmps/Error";
@@ -26,7 +27,7 @@ export function App() {
         {error && <Error error={error} />}
         <main>
           {filteredProducts.map((product) => (
-            <Product products={product} key={product.id} />
+            <Product products={product} key={product.id} supplements={supplements}  />
           ))}
         </main>
       </section>
