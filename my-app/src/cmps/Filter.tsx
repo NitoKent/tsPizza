@@ -16,12 +16,12 @@ export function Filter() {
           </button>
         ))}
       </div>
-      <div className="sort-by">
+      {/* <div className="sort-by">
         <p>Сортировать по:</p>
         <select>
           <option value="">Популярности</option>
         </select>
-      </div>
+      </div> */}
     </section>
   );
 }

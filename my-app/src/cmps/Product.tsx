@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, } from "react";
 import { IProducts, Isupplemets } from "../models";
 import { products } from "../data/data";
 import { AddModal } from "./AddModal";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 interface ProductProps {
   products: IProducts;
@@ -9,6 +11,7 @@ interface ProductProps {
 }
 
 export function Product({ products,supplements }: ProductProps) {
+  const count = useSelector((state: RootState) => state.cart.counter);
   const [showDetails, setShowDetails] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -22,7 +25,7 @@ export function Product({ products,supplements }: ProductProps) {
 
   return (
     <>
-      <section className="product-container" onClick={getModal}>
+      <section className="product-container" onClick={getModal} >
         <div className="context-card">
           <img width={"100px"} alt={products.title} src={products.image} />
           <p>{products.title}</p>
@@ -32,7 +35,7 @@ export function Product({ products,supplements }: ProductProps) {
         <div className="footer-cards">
           <p > от {products.price}$</p>
           <button onClick={getModal}>
-           + Выбрать
+           +Выбрать
           </button>
         </div>
       </section>

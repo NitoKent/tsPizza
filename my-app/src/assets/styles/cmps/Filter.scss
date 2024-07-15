@@ -1,6 +1,6 @@
 .filter-line {
     display: grid;
-    grid-template-columns: 1fr auto; // Одна колонка для кнопок и одна для опций
+    grid-template-columns: 2fr auto; // Одна колонка для кнопок и одна для опций
     align-items: center; // Выравнивание элементов по вертикали
     border-radius: 7px 7px 0 0;
     width: 100%;
@@ -10,7 +10,7 @@
     .change-by {
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        // justify-content: start;
 
         button {
             display: flex;
