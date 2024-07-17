@@ -21,7 +21,7 @@ export function useProduct() {
         );
         setProduct(response.data);
         setLoading(false);
-        console.log(response.data);
+        // console.log(response.data);
       } catch (e: unknown) {
         const error = e as AxiosError;
         setLoading(false);

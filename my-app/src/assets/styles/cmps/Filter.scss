@@ -1,43 +1,97 @@
 .filter-line {
-    display: grid;
-    grid-template-columns: 2fr auto; // Одна колонка для кнопок и одна для опций
-    align-items: center; // Выравнивание элементов по вертикали
-    border-radius: 7px 7px 0 0;
-    width: 100%;
-    height: 100px; // Увеличим высоту, чтобы было больше места для содержимого
-    padding: 0 45px; // Отступы слева и справа
+  display: grid;
+  grid-template-columns: 1fr auto; // Одна колонка для кнопок и одна для опций
+  align-items: center; // Выравнивание элементов по вертикали
+  border-radius: 7px 7px 0 0;
+  width: 100%;
+  height: 100px; // Увеличим высоту, чтобы было больше места для содержимого
+  padding: 0 45px; // Отступы слева и справа
 
+  .change-by {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: max-content;
+      padding: 20px;
+      height: 45px;
+      border-radius: 30px;
+      margin-right: 30px;
+      background-color: rgb(215, 213, 213);
+      color: black;
+      border: none;
+      cursor: pointer;
+
+      &.active {
+        background-color: black;
+        color: whitesmoke;
+      }
+
+      &:hover {
+        border: solid 1px rgb(223, 208, 202);
+      }
+    }
+  }
+  .sort-by {
+    display: none;
+    flex-direction: row;
+  }
+  .search-filter {
+    display: none;
+    .search-icon {
+      position: absolute;
+      z-index: 2;
+      margin-top: 9px;
+      margin-left: 8px;
+      fill: rgba(50, 50, 50, 0.717);
+    }
+    input {
+      margin-left: em(10px);
+
+      color: rgb(0, 0, 0);
+      background-color: rgb(228, 224, 224);
+      border-radius: 20px;
+      height: 40px;
+      border: none;
+      outline: none;
+      margin-bottom: 0px;
+      padding-left: 30px;
+      width: 270px;
+      opacity: 10;
+      transition: transform 0.9s, width 0.1s, opacity 0.2s;
+    }
+  }
+
+  @media screen and (max-width: 1042px) {
     .change-by {
-        display: flex;
-        flex-direction: row;
-        // justify-content: start;
-
-        button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: max-content;
-            padding: 20px;
-            height: 45px;
-            border-radius: 30px;
-            margin-right: 30px;
-            background-color: rgb(215, 213, 213);
-            color: black;
-            border: none;
-            cursor: pointer;
-
-            &.active {
-                background-color: black;
-                color: whitesmoke;
-            }
-
-            &:hover {
-                border: solid 1px rgb(223, 208, 202);
-            }
-        }
+      display: none;
     }
     .sort-by {
-        display: flex;
-        flex-direction: row;
+      display: flex;
+      flex-direction: row;
     }
+  }
+  @media screen and (max-width: 921px){
+    .search-filter {
+        display: flex;
+    }
+  }
+  
+}
+@media screen and (max-width: 885px) {
+  .filter-line { 
+      display: flex;
+      flex-direction: column;
+      .sort-by {
+        margin:20px
+      }
+      .search-filter {
+        margin: 10px;
+      }
+      
+  }
 }

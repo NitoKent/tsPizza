@@ -8,12 +8,22 @@ import { Filter } from "./cmps/Filter";
 import { AppHeader } from "./cmps/AppHeader";
 import { store } from "./store";
 import { Provider } from "react-redux";
+import { useState } from "react";
 
 export function App() {
   const { loading, error, searchQuery, handleSearch } = useProduct();
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleFilter = (category:string) => {
+    setSelectedCategory(category);
+  };
+
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === "Все" || product.category.includes(selectedCategory);
+    console.log(matchesCategory)
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <Provider store={store}>
@@ -23,11 +33,11 @@ export function App() {
           {loading && <Loader />}
         </header>
 
-        <Filter />
+        <Filter onSearch={handleSearch} onFilter={handleFilter} />
         {error && <Error error={error} />}
         <main>
           {filteredProducts.map((product) => (
-            <Product products={product} key={product.id} supplements={supplements}  />
+            <Product products={product} key={product.id} supplements={supplements} />
           ))}
         </main>
       </section>

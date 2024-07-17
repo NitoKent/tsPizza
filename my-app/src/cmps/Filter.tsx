@@ -1,7 +1,18 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Search } from "./Search";
 
-export function Filter() {
+interface AppHeaderProps {
+  onSearch: (query: string) => void;
+  onFilter: (category: string) => void;
+}
+
+export function Filter({ onSearch, onFilter }: AppHeaderProps) {
   const [activeFilter, setActiveFilter] = useState("Все");
+
+  const handleChangeCategory = (category: string) => {
+    setActiveFilter(category);
+    onFilter(category);
+  };
 
   return (
     <section className="filter-line">
@@ -10,18 +21,24 @@ export function Filter() {
           <button
             key={filter}
             className={activeFilter === filter ? "active" : ""}
-            onClick={() => setActiveFilter(filter)}
+            onClick={() => {
+              setActiveFilter(filter);
+              handleChangeCategory(filter);
+            }}
           >
             {filter}
           </button>
         ))}
       </div>
-      {/* <div className="sort-by">
+      <div className="sort-by">
         <p>Сортировать по:</p>
         <select>
           <option value="">Популярности</option>
         </select>
-      </div> */}
+      </div>
+      <div className="search-filter">
+        <Search onSearch={onSearch} />
+      </div>
     </section>
   );
 }

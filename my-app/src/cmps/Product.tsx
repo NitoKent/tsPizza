@@ -12,12 +12,9 @@ interface ProductProps {
 
 export function Product({ products,supplements }: ProductProps) {
   const count = useSelector((state: RootState) => state.cart.counter);
-  const [showDetails, setShowDetails] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const getDetails = () => {
-    setShowDetails(!showDetails);
-  };
+
 
   const getModal = () => {
     setShowModal(!showModal);

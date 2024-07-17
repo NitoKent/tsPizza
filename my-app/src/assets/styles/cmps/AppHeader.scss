@@ -27,7 +27,9 @@
     }
 
     input {
+       
         margin-left: em(10px);
+        margin-right: 20px;
         color: rgb(0, 0, 0);
         background-color: rgb(228, 224, 224);
         border-radius: 10px;
@@ -37,11 +39,17 @@
         margin-bottom: 0px;
         padding-left: 30px;
         width: 270px;
-        // opacity: 10;
+        opacity: 10;
         transition: transform 0.9s, width 0.1s, opacity 0.2s;
     }
-
-  }
+    
+}
+@media screen and (max-width: 921px) {
+    .search {
+     display: none;
+        
+     }
+    }
 
   .options {
     width: 120px;
