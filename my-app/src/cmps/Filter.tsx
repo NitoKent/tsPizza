@@ -17,24 +17,30 @@ export function Filter({ onSearch, onFilter }: AppHeaderProps) {
   return (
     <section className="filter-line">
       <div className="change-by">
-        {["Все", "Мясные", "Острые", "Без мяса", "Закрытые", "Морские"].map((filter) => (
-          <button
-            key={filter}
-            className={activeFilter === filter ? "active" : ""}
-            onClick={() => {
-              setActiveFilter(filter);
-              handleChangeCategory(filter);
-            }}
-          >
-            {filter}
-          </button>
-        ))}
+        {["Все", "Мясные", "Острые", "Без мяса", "Закрытые", "Морские"].map(
+          (filter) => (
+            <button
+              key={filter}
+              className={activeFilter === filter ? "active" : ""}
+              onClick={() => handleChangeCategory(filter)}
+            >
+              {filter}
+            </button>
+          )
+        )}
       </div>
       <div className="sort-by">
-        <p>Сортировать по:</p>
-        <select>
-          <option value="">Популярности</option>
-        </select>
+       
+        <div className="custom-select">
+          <select onChange={(e) => handleChangeCategory(e.target.value)}>
+            <option value="Все">Все</option>
+            <option value="Мясные">Мясные</option>
+            <option value="Острые">Острые</option>
+            <option value="Без мяса">Без мяса</option>
+            <option value="Закрытые">Закрытые</option>
+            <option value="Морские">Морские</option>
+          </select>
+        </div>
       </div>
       <div className="search-filter">
         <Search onSearch={onSearch} />

@@ -11,12 +11,23 @@
         align-items: center;
         justify-content: center;
         align-self: center;
-        grid-template-columns: repeat(3, 2fr); // 4 элемента в строке
+        // grid-template-columns: repeat(3, 2fr); // 4 элемента в строке
         gap: 20px; // Расстояние между элементами
-        
         padding: 47.5px; 
-
-       
+    } 
+    @media screen and (max-width: 2000px) {
+        main {
+            width: 100%;
+            // gap: 90px;
+            grid-template-columns: repeat(4, 3fr); /* 4 elements in a row for larger screens */
+        }
+    }
+    @media screen and (max-width: 1522px) {
+        main {
+            width: 100%;
+            // gap: 90px;
+            grid-template-columns: repeat(3, 3fr); /* 4 elements in a row for larger screens */
+        }
     }
     @media screen and (max-width: 1331px) {
         main {
