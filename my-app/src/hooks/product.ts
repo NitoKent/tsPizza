@@ -1,37 +1,35 @@
-import React, { useEffect, useState } from "react";
-import { IProducts } from "../models";
-import axios, { AxiosError } from "axios";
+// hooks/product.ts
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { IProducts } from '../models';
 
-export function useProduct() {
-    const [products, setProduct] = useState<IProducts[]>([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-    const [ searchQuery, setSearchQuery ] = useState<string>("")
-  
-    const handleSearch = (query: string) => {
-        setSearchQuery(query);
-      }
+export const useProduct = () => {
+  const [products, setProducts] = useState<IProducts[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
-    async function fetchProduct() {
+  useEffect(() => {
+    const fetchProducts = async () => {
       try {
-        setError("");
-        setLoading(true);
-        const response = await axios.get<IProducts[]>(
-          "https://fakestoreapi.com/products?limit=9"
-        );
-        setProduct(response.data);
+        const response = await axios.get<IProducts[]>('/post');
+        setProducts(response.data);
         setLoading(false);
-        // console.log(response.data);
-      } catch (e: unknown) {
-        const error = e as AxiosError;
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('An unknown error occurred');
+        }
         setLoading(false);
-        setError(error.message);
       }
-    }
-  
-    useEffect(() => {
-      fetchProduct();
-    }, []);
+    };
+    fetchProducts();
+  }, []);
 
-    return { products, error, loading, searchQuery, handleSearch}
-}
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+  };
+
+  return { products, loading, error, searchQuery, handleSearch };
+};
