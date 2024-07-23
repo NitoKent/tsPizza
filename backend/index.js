@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import path from "path";
 import {
   registerValidator,
   loginValidator,
@@ -22,6 +23,8 @@ const app = express();
 
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
@@ -35,6 +38,11 @@ app.get("/post/:id", PostController.getOne);
 app.post("/post", checkAuth, postCreatePizzaValidator, PostController.create);
 app.delete("/post/:id", checkAuth, PostController.remove);
 app.patch("/post/:id", checkAuth, PostController.update);
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
 
 app.listen(3000, (err) => {
   if (err) {
