@@ -1,6 +1,7 @@
 services:
   - type: web
-    name: my-app
-    env: static
-    buildCommand: cd my-app && npm install && npm run build
-    staticPublishPath: backend/public
+    name: tsPizza
+    env: node
+    buildCommand: npm run build
+    startCommand: npm start
+    publishPath: backend/public

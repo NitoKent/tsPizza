@@ -1,0 +1,12 @@
+{
+    "name": "tsPizza",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "start": "cd backend && npm start",
+      "build": "cd my-app && npm install && npm run build && cp -r build/* ../backend/public",
+      "postbuild": "cd backend && npm install"
+    },
+    "dependencies": {}
+  }
+  
