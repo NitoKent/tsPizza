@@ -1,0 +1,10 @@
+{
+    "name": "my-project",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "cd my-app && npm install && npm run build && cp -r build/* ../backend/public",
+      "postbuild": "cd backend && npm install",
+      "start": "cd backend && npm start"
+    }
+  }
+  
