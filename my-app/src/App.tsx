@@ -34,7 +34,7 @@ export function App() {
         </header>
 
         <Filter onSearch={handleSearch} onFilter={handleFilter} />
-        {error && <Error error={error} />}
+        {/* {error && <Error error={error} />} */}
         <main>
           {filteredProducts.map((product) => (
             <Product products={product} key={product.id} supplements={supplements} />
