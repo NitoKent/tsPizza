@@ -1,4 +1,4 @@
-
+import 'animate.css'
 
 interface AddModalProps {
   onClose: () => void;
@@ -10,7 +10,7 @@ export function BasketModal({ onClose }: AddModalProps) {
     // Задний фон модального окна
     <div className="basket-modal-backdrop" onClick={onClose}>
       {/* Секция самого модального окна */}
-      <section className="basket-modal" onClick={(e) => e.stopPropagation()}>
+      <section className="basket-modal animate__animated animate__slideInRight" onClick={(e) => e.stopPropagation()}>
         <header>
           <p>Ваши заказы</p>
           <p>Общая сумма заказа:</p>

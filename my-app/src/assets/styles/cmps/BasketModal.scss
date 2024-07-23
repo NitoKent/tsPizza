@@ -29,3 +29,7 @@
     display: none; /* Скрытие элемента */
   }
   
+  .animate__animated.animate__slideInRight {
+    --animate-duration: 0.4s;
+  }
+  

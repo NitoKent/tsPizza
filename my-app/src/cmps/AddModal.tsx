@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IProducts, Isupplemets } from "../models";
 import { useDispatch } from "react-redux";
 import { add } from "../store";
+import 'animate.css'
 
 interface AddModalProps {
   onClose: () => void;
@@ -26,7 +27,7 @@ export function AddModal({ onClose, products, supplements }: AddModalProps) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content animate__animated animate__fadeIn" onClick={(e) => e.stopPropagation()}>
         <button className="close-button" onClick={onClose}>
           Close X
         </button>
