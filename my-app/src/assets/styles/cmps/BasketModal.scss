@@ -1,0 +1,31 @@
+/* Задний фон модального окна */
+.basket-modal-backdrop {
+    position: fixed; /* Фиксированное положение, чтобы покрыть весь экран */
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    display: flex; /* Используем flex для центрирования модального окна */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Обеспечивает, что элемент будет выше других */
+  }
+  
+  /* Стили самого модального окна */
+  .basket-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 400px;
+    background-color: white;
+    z-index: 1001; 
+   
+    /* Обеспечивает, что элемент будет выше заднего фона */
+  }
+  
+  .hidden {
+    display: none; /* Скрытие элемента */
+  }
+  
