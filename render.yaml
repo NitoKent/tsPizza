@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: tsPizza
-    env: node
-    buildCommand: npm run build
-    startCommand: npm start
-    publishPath: backend/public
